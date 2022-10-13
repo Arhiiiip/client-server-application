@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group 'Arhiiiip'
+version '1'
+
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.postgresql:postgresql:42.3.3'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation project(':common')
+}
+
+test {
+    useJUnitPlatform()
+}
+
+
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    archiveBaseName = "server"
+    manifest {
+        attributes "Main-Class": "Main"
+    }
+}
